@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>云朵小镇</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- BODY START -->
+<div id="app">
+  <canvas id="game" aria-label="游戏画面"></canvas>
+
+  <div id="hud" hidden>
+    <header id="topbar">
+      <div class="top-left">
+        <button id="btnExit" class="felt small"></button>
+        <span id="locName" class="loc"></span>
+        <nav id="roomTabs" class="room-tabs" aria-label="房间"></nav>
+      </div>
+      <div class="top-right">
+        <button id="btnClock" class="chip" aria-label="时间和天气"><span id="clockIc"></span><span id="clockText"></span></button>
+        <button id="btnMail" class="iconbtn" title="信箱" aria-label="信箱" data-ic="mail"><i id="mailDot" class="dot" hidden></i></button>
+        <button id="btnWish" class="iconbtn" title="今日小心愿" aria-label="今日小心愿" data-ic="star"><b id="wishCount" class="badge" hidden></b></button>
+        <button id="btnDiary" class="iconbtn" title="小镇日记" aria-label="小镇日记" data-ic="book"></button>
+        <button id="btnPhoto" class="iconbtn" title="拍照" aria-label="拍照" data-ic="camera"></button>
+        <button id="btnMusic" class="iconbtn" title="背景音乐" aria-label="背景音乐" data-ic="music"></button>
+        <button id="btnSettings" class="iconbtn" title="设置和存档" aria-label="设置和存档" data-ic="gear"></button>
+      </div>
+    </header>
+    <aside id="tools" aria-label="工具"></aside>
+    <section id="drawer" class="panel" hidden></section>
+    <div id="ctxbar" hidden></div>
+  </div>
+
+  <section id="title">
+    <canvas id="titleCv" aria-hidden="true"></canvas>
+    <div class="title-card">
+      <h1>云朵小镇</h1>
+      <p class="tag">把想要的家，一件一件摆出来</p>
+      <div class="title-btns">
+        <button id="btnNew" class="felt big primary">开始新的生活</button>
+        <button id="btnContinue" class="felt big" hidden>继续我的小镇</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="select" hidden>
+    <div class="screen-inner">
+      <header class="screen-head">
+        <button id="btnBack" class="felt small">返回</button>
+        <h2>谁要住进小镇？</h2>
+      </header>
+      <div id="girlGrid" class="girl-grid"></div>
+      <footer class="screen-foot">
+        <label class="town-name">小镇叫做 <input id="townInput" type="text" maxlength="10" value="云朵小镇"></label>
+        <button id="btnStart" class="felt big primary">搬进小镇</button>
+      </footer>
+    </div>
+  </section>
+
+  <section id="creator" hidden>
+    <div class="creator-wrap">
+      <div class="creator-left panel">
+        <h2 id="creatorTitle">捏一个新朋友</h2>
+        <canvas id="creatorCv" aria-label="角色预览"></canvas>
+        <div class="row center">
+          <button id="btnExpr" class="felt small">换个表情</button>
+          <button id="btnRandom" class="felt small">随机一下</button>
+        </div>
+      </div>
+      <div class="creator-right panel">
+        <nav id="creatorTabs" class="cat-tabs">
+          <button data-t="hair">发型</button><button data-t="face">脸蛋</button><button data-t="cloth">衣服</button><button data-t="acc">饰品</button><button data-t="name">名字</button>
+        </nav>
+        <div id="creatorBody"></div>
+        <footer class="row end">
+          <button id="btnCreatorCancel" class="felt">取消</button>
+          <button id="btnCreatorOk" class="felt primary">就是她了</button>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+  <div id="modals"></div>
+  <div id="toasts" aria-live="polite"></div>
+</div>
+<!-- BODY END -->
+<script src="js/core.js"></script>
+<script src="js/art-char.js"></script>
+<script src="js/art-furn.js"></script>
+<script src="js/art-map.js"></script>
+<script src="js/world.js"></script>
+<script src="js/game.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
